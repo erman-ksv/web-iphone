@@ -1,0 +1,109 @@
+
+.screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #d3b7b7;
+  box-sizing: border-box;
+}
+
+.iphone {
+  position: relative;
+  width: 432px;
+  height: 894px;
+  background-image: url('./../Photos/iphoneBack.jpg');
+  background-position: center;
+  background-repeat:no-repeat;
+  background-size:cover;
+  border-radius: 80px;
+  border: 12px solid #333;
+  padding: 0 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.notch {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 35px;
+  background: #222;
+  border-radius: 20px;
+}
+
+.volume-button {
+  position: absolute;
+  width: 6px;
+  height: 40px;
+  background: #444;
+  border-radius: 4px;
+  left: -10px;
+}
+
+.volume-button.up {
+  top: 160px;
+}
+
+.volume-button.down {
+  top: 230px;
+}
+
+.power-button {
+  position: absolute;
+  width: 6px;
+  height: 60px;
+  background: #444;
+  border-radius: 4px;
+  right: -10px;
+  top: 150px;
+}
+
+.header-section{
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+}
+
+.time-top{
+  height: 80px;
+  width: 80px;
+  background-image: url('./../Photos/Header/Time.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto;
+}
+
+.header-symbols{
+  display: flex;
+  gap: 10px;
+}
+
+.apps {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  padding: 50px 20px 0;
+}
+  
+  
+.dock {
+  width: 370px;
+  height: 90px;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-evenly;
+  gap: 25px;
+  background: rgba(0,0,0,0.5);
+  padding: 15px;
+  border-radius: 30px;
+  box-sizing: border-box;
+}

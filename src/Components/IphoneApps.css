@@ -1,0 +1,23 @@
+.app-box{
+    width: 60px;
+    height: 80px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+.app-Instagram{
+    width: 60px;
+    height: 60px;
+}
+
+.app-name{
+    padding-top: 5px;
+    margin: 0;
+    color: white;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 400;
+    font-family: cursive;
+}
