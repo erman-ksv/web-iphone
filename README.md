@@ -1,3 +1,3 @@
 emmetLanguage
 
-npm install tailwindcss @tailwindcss/postcss postcss
+npm i firebase

@@ -1,11 +1,14 @@
 import './App.css';
 import Iphone from './Components/Iphone';
+// import { AuthProvider } from './Components/Context/authContext';
 
 function App() {
   return (
-    <div className="App">
-      <Iphone />
-    </div>
+    // <AuthProvider>
+      <div className="App">
+        <Iphone />
+      </div>
+    // </AuthProvider>
   );
 }
 

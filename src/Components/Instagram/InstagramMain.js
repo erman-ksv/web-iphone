@@ -5,11 +5,12 @@ import InstagramMainTop from './InstagramMainTop'
 export default function InstagramMain({user}) {
   return (
     <div>
-      {user ? 
+    {console.log(1)}
+      {/* {user ? 
         <InstagramMainTop />
         : 
         console.log("Error")
-      }
+      } */}
     </div>
   )
 }

@@ -10,8 +10,8 @@ import Instagram from './Instagram/Instagram';
 
 export default function Iphone() {
   
-  const [blocked,setBlocked] = useState(false)
-  const [application, setApplication] = useState(false)
+  const [blocked,setBlocked] = useState(true)
+  const [application, setApplication] = useState(true)
 
   const backToMain = ()=>{
     setApplication(false)
