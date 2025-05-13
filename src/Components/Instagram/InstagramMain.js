@@ -2,15 +2,16 @@ import React from 'react'
 import './InstagramMain.css'
 import InstagramMainTop from './InstagramMainTop'
 
-export default function InstagramMain({user}) {
+export default function InstagramMain({user},setIsSiging) {
   return (
     <div>
-    {console.log(1)}
-      {/* {user ? 
-        <InstagramMainTop />
-        : 
-        console.log("Error")
-      } */}
+    
+      {
+      // user ? 
+        <InstagramMainTop user={user} setIsSiging={setIsSiging}/>
+        // : 
+        // console.log("Error")
+      }
     </div>
   )
 }

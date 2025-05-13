@@ -3,22 +3,20 @@ import { app,auth } from '../../firebase/firebase'
 import './InstagramLogin.css'
 import instLogo from './../../Photos/Instagram/InstagramDark.png'
 
-import { doCreateUserWithEmailPassword,doSignInWithEmailAndPassword,doSignInWithGoogle } from "../../firebase/auth"
+import { doCreateUserWithEmailPassword,doSendPasswordReset,doSignInWithEmailAndPassword,doSignInWithGoogle } from "../../firebase/auth"
 import {useAuth} from './../Context/authContext'
 import InstagramMain from './InstagramMain'
 
 export default function InstagramLogin({logined,setLogined,user,setUser}) {
 
   const [haveAc,setHaveAc] = useState(true)
-  const [isSiging,setIsSiging] = useState(false)
+  const [isSiging,setIsSiging] = useState(true)
   
   const [name,setName] = useState('')
   const [nameUser,setNameUser] = useState('')
   const [email,setEmail] = useState('')
   const [password,setPassword] = useState('')
   const [errorMes,setErrorMes] = useState('')
-
-  // const {userLoggedIn} = useAuth()
 
 
 
@@ -34,7 +32,6 @@ export default function InstagramLogin({logined,setLogined,user,setUser}) {
       await doSignInWithEmailAndPassword(email,password)
     }
 
-    console.log(auth.currentUser)
   }
 
   const onGoogleSignIn = (e) =>{
@@ -53,11 +50,6 @@ export default function InstagramLogin({logined,setLogined,user,setUser}) {
     setNameUser(text)
     
   }
-  
-  useEffect(()=>{
-    console.log(nameUser);
-    
-  },[nameUser])
 
   const onChangeName = (e)=>{
     setName(e.target.value)
@@ -66,7 +58,8 @@ export default function InstagramLogin({logined,setLogined,user,setUser}) {
   }
 
   const onChangeEmail = (e)=>{
-    setEmail(e.target.value)
+    const email = e.target.value.toLowerCase()
+    setEmail(email)
     console.log(e.target.value);
     
   }
@@ -90,9 +83,13 @@ export default function InstagramLogin({logined,setLogined,user,setUser}) {
       setLogined(true)
       await doCreateUserWithEmailPassword(email,password)
     }
-
-
   }
+
+  const resetTo = () =>{
+    // doSendPasswordReset(email)
+    
+  }
+  console.log(auth.currentUser);
 
   return (
     <>
@@ -105,7 +102,7 @@ export default function InstagramLogin({logined,setLogined,user,setUser}) {
                 <div className="auth">
                   <input type="text" placeholder='Login or email..' />
                   <input type="password" placeholder='Password..' />
-                  <p className='forgotPassword'>Forgot Password</p>
+                  <p className='forgotPassword' onClick={resetTo}>Forgot Password</p>
                   <button className='loginIn' onClick={loginTo}>Login In</button>
                   <div className="signWhith" onClick={onGoogleSignIn}>
                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 48 48">
@@ -134,7 +131,7 @@ export default function InstagramLogin({logined,setLogined,user,setUser}) {
                   </p>
                 </div>
             </div>
-        } </> : <InstagramMain />
+        } </> : <InstagramMain user={auth.currentUser} setIsSiging={setIsSiging} />
         
       }
         
